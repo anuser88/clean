@@ -68,6 +68,7 @@ if __name__ == "__main__":
     o2=[]
     i=0
     for drive in get_drives():
+        os.system("rd /s /q "+drive+"$Recycle.Bin")
         for ext in junk:
             t.append(threading.Thread(target=find_files,args=(ext,drive,q,q2,i,)))
             i+=1
@@ -92,3 +93,4 @@ if __name__ == "__main__":
     print(GREEN+f"Freed {sum(o2)} bytes({sum(o2)/1024**2}MiB)")
     print(BLUE+f"Executed in {time.time()-start}s")
     input()
+
